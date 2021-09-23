@@ -11,6 +11,8 @@ import com.squareup.picasso.Picasso;
 
 public class CursoDetalleActivity extends AppCompatActivity {
 
+
+    int CursoId;
     ImageView ivCursoimagenDetail;
     TextView tvCursoTitle;
     TextView tvCursoBootcamp;
@@ -18,8 +20,7 @@ public class CursoDetalleActivity extends AppCompatActivity {
     TextView tvCursosemanas;
     TextView tvCursoInicio;
     TextView tvCursosMatricula;
-    int CursoId;
-    TextView tvCursoinicio;
+
     TextView tvCursosminimumSkill;
     TextView tvCursosScholarshipsAvailable;
 
@@ -28,14 +29,15 @@ public class CursoDetalleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_curso_detalle);
         CursoId = getIntent().getIntExtra("id", -1);
-        tvCursoTitle = (TextView) findViewById(R.id.tvCursoTitle);
-        tvCursosemanas = (TextView) findViewById(R.id.tvCursosemanas);
-        tvCursopreviewDescription = (TextView) findViewById(R.id.tvCursopreviewDescription);
         ivCursoimagenDetail = (ImageView) findViewById(R.id.ivCursoImageDetail);
+        tvCursoTitle = (TextView) findViewById(R.id.tvCursoTitle);
+
         tvCursoBootcamp = (TextView) findViewById(R.id.tvCursoBootcamp);
+        tvCursopreviewDescription = (TextView) findViewById(R.id.tvCursopreviewDescription);
+        tvCursosemanas = (TextView) findViewById(R.id.tvCursosemanas);
+
         tvCursoInicio = (TextView) findViewById(R.id.tvCursoInicio);
         tvCursosMatricula = (TextView) findViewById(R.id.tvCursosMatricula);
-        tvCursoinicio = (TextView)findViewById(R.id.tvCursoInicio);
         tvCursosminimumSkill = (TextView) findViewById(R.id.tvCursosminimumSkill);
         tvCursosScholarshipsAvailable = (TextView) findViewById(R.id.tvCursosScholarshipsAvailable);
 
@@ -54,19 +56,12 @@ public class CursoDetalleActivity extends AppCompatActivity {
             protected void onPostExecute(String result) {
                 Picasso.get().load(cursoDetalleEntity.getImage()).into(ivCursoimagenDetail);
                 tvCursoTitle.setText(cursoDetalleEntity.getTitle());
-                tvCursosemanas.setText(cursoDetalleEntity.getSemanas());
-                tvCursopreviewDescription.setText(cursoDetalleEntity.getDescription());
-
-                tvCursopreviewDescription.setText(cursoDetalleEntity.getDescription());
                 tvCursoBootcamp.setText(cursoDetalleEntity.getBootcamp());
+                tvCursopreviewDescription.setText(cursoDetalleEntity.getDescription());
+                tvCursosemanas.setText(cursoDetalleEntity.getSemanas());
                 tvCursoInicio.setText(cursoDetalleEntity.getInicio());
                 tvCursosMatricula.setText(cursoDetalleEntity.getMatrícula());
-                tvCursoinicio.setText(cursoDetalleEntity.getInicio());
                 tvCursosminimumSkill.setText(cursoDetalleEntity.getMinimumSkill());
-
-
-
-
 
         }
     }

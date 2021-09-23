@@ -13,7 +13,7 @@ public class Curso {
         this.title = title;
         this.previewDescription = previewDescription;
         this.imagen = imagen;
-
+        this.semanas = semanas;
         this.inicio = inicio;
     }
 

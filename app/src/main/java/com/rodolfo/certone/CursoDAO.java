@@ -20,6 +20,6 @@ public interface CursoDAO {
     @Insert
     public void addCursoDetalle(CursoDetalleEntity cursoDetalleEntity);
 
-    @Query("SELECT * from Curso_detalle_entity WHERE id=:id")
+    @Query("SELECT * from curso_detalle_entity WHERE id=:id")
     public CursoDetalleEntity getCursoDetalleById(int id);
 }
