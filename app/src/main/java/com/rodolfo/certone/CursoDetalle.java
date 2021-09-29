@@ -9,24 +9,28 @@ public class CursoDetalle {
     private String title;
     private String description;
     private String image;
-    private String semanas;
-    private int matrícula;
+    private String weeks;
+    private int tuition;
     private String minimumSkill;
     private boolean ScholarshipsAvailable;
-    private String bootcamp;
-    private String inicio;
+    private String modality;
+    private String start;
 
-    public CursoDetalle(int id, String title, String description, String image, String semanas, int matrícula, String minimumSkill, boolean scholarshipsAvailable, String bootcamp, String inicio) {
+    public CursoDetalle(){
+
+    }
+
+    public CursoDetalle(int id, String title, String description, String image, String weeks, int tuition, String minimumSkill, boolean scholarshipsAvailable, String modality, String start) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.image = image;
-        this.semanas = semanas;
-        this.matrícula = matrícula;
+        this.weeks = weeks;
+        this.tuition = tuition;
         this.minimumSkill = minimumSkill;
         this.ScholarshipsAvailable = scholarshipsAvailable;
-        this.bootcamp = bootcamp;
-        this.inicio = inicio;
+        this.modality = modality;
+        this.start = start;
     }
         public int getId() {
             return id;
@@ -60,21 +64,7 @@ public class CursoDetalle {
             this.image = image;
         }
 
-        public String getSemanas() {
-            return semanas;
-        }
 
-        public void setSemanas(String semanas) {
-            this.semanas = semanas;
-        }
-
-        public int getMatrícula() {
-            return matrícula;
-        }
-
-        public void setMatrícula(int matrícula) {
-            this.matrícula = matrícula;
-        }
 
         public String getMinimumSkill() {
             return minimumSkill;
@@ -92,20 +82,36 @@ public class CursoDetalle {
             ScholarshipsAvailable = scholarshipsAvailable;
         }
 
-        public String getBootcamp() {
-            return bootcamp;
+        public String getModality() {
+            return modality;
         }
 
-        public void setBootcamp(String bootcamp) {
-            this.bootcamp = bootcamp;
+        public void setModality(String modality) {
+            this.modality = modality;
         }
+    public String getWeeks() {
+        return weeks;
+    }
 
-        public String getInicio() {
-            return inicio;
-        }
+    public void setWeeks(String weeks) {
+        this.weeks = weeks;
+    }
 
-        public void setInicio(String inicio) {
-            this.inicio = inicio;
-        }
+    public int getTuition() {
+        return tuition;
+    }
+
+    public void setTuition(int tuition) {
+        this.tuition = tuition;
+    }
+
+    public String getStart() {
+        return start;
+    }
+
+    public void setStart(String start) {
+        this.start = start;
+    }
+
     }
 

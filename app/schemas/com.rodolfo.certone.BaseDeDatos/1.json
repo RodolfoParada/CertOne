@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "dcef8f573d09cf3be223c9db26bfe136",
+    "identityHash": "6fb838a4458ad4fd3b1c21cc11b6d6dc",
     "entities": [
       {
         "tableName": "curso_entity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `title` TEXT, `previewDescription` TEXT, `imagen` TEXT, `semanas` INTEGER NOT NULL, `inicio` TEXT, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `title` TEXT, `previewDescription` TEXT, `imagen` TEXT, `weeks` INTEGER NOT NULL, `start` TEXT, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -33,14 +33,14 @@
             "notNull": false
           },
           {
-            "fieldPath": "semanas",
-            "columnName": "semanas",
+            "fieldPath": "weeks",
+            "columnName": "weeks",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "inicio",
-            "columnName": "inicio",
+            "fieldPath": "start",
+            "columnName": "start",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -56,7 +56,7 @@
       },
       {
         "tableName": "curso_detalle_entity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `title` TEXT, `description` TEXT, `image` TEXT, `semanas` INTEGER NOT NULL, `matrícula` INTEGER NOT NULL, `minimumSkill` TEXT, `ScholarshipsAvailable` INTEGER NOT NULL, `bootcamp` TEXT, `inicio` TEXT, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `title` TEXT, `description` TEXT, `image` TEXT, `weeks` TEXT, `tuition` INTEGER NOT NULL, `minimumSkill` TEXT, `ScholarshipsAvailable` INTEGER NOT NULL, `modality` TEXT, `start` TEXT, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -83,14 +83,14 @@
             "notNull": false
           },
           {
-            "fieldPath": "semanas",
-            "columnName": "semanas",
-            "affinity": "INTEGER",
-            "notNull": true
+            "fieldPath": "weeks",
+            "columnName": "weeks",
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
-            "fieldPath": "matrícula",
-            "columnName": "matrícula",
+            "fieldPath": "tuition",
+            "columnName": "tuition",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -107,14 +107,14 @@
             "notNull": true
           },
           {
-            "fieldPath": "bootcamp",
-            "columnName": "bootcamp",
+            "fieldPath": "modality",
+            "columnName": "modality",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "inicio",
-            "columnName": "inicio",
+            "fieldPath": "start",
+            "columnName": "start",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -132,7 +132,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'dcef8f573d09cf3be223c9db26bfe136')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6fb838a4458ad4fd3b1c21cc11b6d6dc')"
     ]
   }
 }

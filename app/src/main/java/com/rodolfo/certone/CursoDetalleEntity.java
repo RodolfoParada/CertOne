@@ -5,36 +5,33 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName="curso_detalle_entity")
 public class CursoDetalleEntity {
-    @PrimaryKey
-    private int id;
+    @PrimaryKey private int id;
     private String title;
     private String description;
     private String image;
-    private int semanas;
-    private int matrícula;
+    private String weeks;
+    private int tuition;
     private String minimumSkill;
     private boolean ScholarshipsAvailable;
-    private String bootcamp;
-    private String inicio;
+    private String modality;
+    private String start;
 
     public CursoDetalleEntity(){
 
     }
 
-    public CursoDetalleEntity(int id, String title, String description, String image, int semanas, int matrícula, String minimumSkill, boolean scholarshipsAvailable, String bootcamp, String inicio) {
+    public CursoDetalleEntity(int id, String title, String description, String image, String weeks, int tuition, String minimumSkill, boolean scholarshipsAvailable, String modality, String start) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.image = image;
-        this.semanas = semanas;
-        this.matrícula = matrícula;
+        this.weeks = weeks;
+        this.tuition = tuition;
         this.minimumSkill = minimumSkill;
         ScholarshipsAvailable = scholarshipsAvailable;
-        this.bootcamp = bootcamp;
-        this.inicio = inicio;
-    }
+        this.modality = modality;
+        this.start = start;
 
-    public CursoDetalleEntity(int id, String title, String description, String image, String semanas, int matrícula, String minimumSkill, boolean scholarshipsAvailable, String bootcamp, String inicio) {
     }
 
     public int getId() {
@@ -69,12 +66,20 @@ public class CursoDetalleEntity {
         this.image = image;
     }
 
-    public int getMatrícula() {
-        return matrícula;
+    public String getWeeks() {
+        return weeks;
     }
 
-    public void setMatrícula(int matrícula) {
-        this.matrícula = matrícula;
+    public void setWeeks(String weeks) {
+        this.weeks = weeks;
+    }
+
+    public int getTuition() {
+        return tuition;
+    }
+
+    public void setTuition(int tuition) {
+        this.tuition = tuition;
     }
 
     public String getMinimumSkill() {
@@ -93,27 +98,23 @@ public class CursoDetalleEntity {
         ScholarshipsAvailable = scholarshipsAvailable;
     }
 
-    public String getBootcamp() {
-        return bootcamp;
+    public String getModality() {
+        return modality;
     }
 
-    public void setBootcamp(String bootcamp) {
-        this.bootcamp = bootcamp;
+    public void setModality(String modality) {
+        this.modality = modality;
     }
 
-    public String getInicio() {
-        return inicio;
+    public String getStart() {
+        return start;
     }
 
-    public void setInicio(String inicio) {
-        this.inicio = inicio;
-    }
-        public int getSemanas() {
-            return semanas;
+    public void setStart(String start) {
+        this.start = start;
     }
 
-        public void setSemanas(int semanas) {
-            this.semanas = semanas;
-    }
-    }
 
+
+
+}

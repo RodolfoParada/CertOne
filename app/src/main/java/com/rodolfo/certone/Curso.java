@@ -4,20 +4,26 @@ public class Curso {
     private int id;
     private String title;
     private String previewDescription;
-    private String imagen;
-    private int semanas;
-    private String inicio;
+    private String image;
+    private int weeks;
+    private String start;
 
-    public Curso(int id, String title, String previewDescription, String imagen, int semanas, String inicio) {
+    public Curso(){
+
+    }
+
+    public Curso(int id, String title, String previewDescription, String imagen, int weeks, String start) {
         this.id = id;
         this.title = title;
         this.previewDescription = previewDescription;
-        this.imagen = imagen;
-        this.semanas = semanas;
-        this.inicio = inicio;
+        this.image = image;
+        this.weeks = weeks;
+        this.start = start;
+
+
     }
 
-    public int getId() {
+    public  int getId() {
         return id;
     }
 
@@ -42,26 +48,27 @@ public class Curso {
     }
 
     public String getImagen() {
-        return imagen;
+        return image;
     }
 
     public void setImagen(String imagen) {
-        this.imagen = imagen;
+        this.image = image;
+    }
+    public int getWeeks() {
+        return weeks;
     }
 
-
-    public String getInicio() {
-        return inicio;
+    public void setWeeks(int weeks) {
+        this.weeks = weeks;
     }
 
-    public void setInicio(String inicio) {
-        this.inicio = inicio;
-    }
-    public int getSemanas() {
-        return semanas;
+    public String getStart() {
+        return start;
     }
 
-    public void setSemanas(int semanas) {
-        this.semanas = semanas;
+    public void setStart(String start) {
+        this.start = start;
+
     }
+
 }

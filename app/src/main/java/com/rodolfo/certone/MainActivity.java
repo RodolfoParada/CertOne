@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +14,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
+  private static final String TAG ="MainActivity";
+
     List<Curso> ListaCurso;
     List<CursoDetalle> ListaCursoDetalle;
     RecyclerView rvCursos;
@@ -37,13 +41,22 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             try {
-                ListaCurso = getRetrofit(0).create(CursoAPI.class).getCurso("cursos").execute().body();
+                ListaCurso = getRetrofit(0)
+                        .create(CursoAPI.class)
+                        .getCurso("courses")
+                        .execute()
+                        .body();
 
                 for (int i = 0; i < ListaCurso.size(); i++) {
-                    CursoDetalle cursoDetalle = getRetrofit(1).create(CursoAPI.class).getCursoDetalle(Integer.toString(ListaCurso.get(i).getId())).execute().body();
+                    CursoDetalle cursoDetalle = getRetrofit(1)
+                            .create(CursoAPI.class)
+                            .getCursoDetalle(Integer.toString(ListaCurso.get(i).getId()))
+                            .execute()
+                            .body();
+
                     ListaCursoDetalle.add(cursoDetalle);
                 }
-                loadCakesIntoDB();
+                loadCursosIntoDB();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (Exception e) {
@@ -52,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
 
-        private void loadCakesIntoDB() {
+        private void loadCursosIntoDB() {
             try {
                 // Carga los cakes de listCakes a la tabla cake_entity
                 for (int i = 0; i < ListaCurso.size(); i++) {
@@ -61,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
                                     ListaCurso.get(i).getTitle(),
                                     ListaCurso.get(i).getPreviewDescription(),
                                     ListaCurso.get(i).getImagen(),
-                                    ListaCurso.get(i).getSemanas(),// es un int
-                                    ListaCurso.get(i).getInicio()
+                                    ListaCurso.get(i).getWeeks(),// es un int
+                                    ListaCurso.get(i).getStart()
                             )
                     );
                 }
@@ -72,12 +85,12 @@ public class MainActivity extends AppCompatActivity {
                                     ListaCursoDetalle.get(i).getTitle(),
                                     ListaCursoDetalle.get(i).getDescription(),
                                     ListaCursoDetalle.get(i).getImage(),
-                                    ListaCursoDetalle.get(i).getSemanas(),
-                                    ListaCursoDetalle.get(i).getMatrícula(),
+                                    ListaCursoDetalle.get(i).getWeeks(),
+                                    ListaCursoDetalle.get(i).getTuition(),
                                     ListaCursoDetalle.get(i).getMinimumSkill(),
                                     ListaCursoDetalle.get(i).isScholarshipsAvailable(),
-                                    ListaCursoDetalle.get(i).getBootcamp(),
-                                    ListaCursoDetalle.get(i).getInicio()
+                                    ListaCursoDetalle.get(i).getModality(),
+                                    ListaCursoDetalle.get(i).getStart()
                             )
                     );
                 }

@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.PicassoProvider;
+
 import java.util.List;
 
 public class CursoAdapter extends RecyclerView.Adapter<CursoAdapter.ViewHolder> {
@@ -24,8 +26,12 @@ public class CursoAdapter extends RecyclerView.Adapter<CursoAdapter.ViewHolder> 
     @NonNull
     @Override
     public CursoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem = layoutInflater.inflate(R.layout.curso_item, parent, false);
+        LayoutInflater layoutInflater = LayoutInflater
+                .from(parent.getContext());
+
+        View listItem = layoutInflater
+                .inflate(R.layout.curso_item, parent, false);
+
         ViewHolder viewHolder = new ViewHolder(listItem);
         return viewHolder;
     }
@@ -34,7 +40,9 @@ public class CursoAdapter extends RecyclerView.Adapter<CursoAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Curso curso = cursoLista.get(position);
         try {
-        Picasso.get().load(cursoLista.get(position).getImagen()).into(holder.ivCurso);
+      //  Picasso.get().load(cursoLista.get(position).getImagen()).into(holder.ivCurso);
+            Picasso.get().load(cursoLista.get(position).getImagen()).into(holder.ivCurso);
+
             holder.tvTitleCurso.setText(cursoLista.get(position).getTitle());
             holder.tvSubTitulo.setText(cursoLista.get(position).getPreviewDescription());//retorna int
 
@@ -47,9 +55,6 @@ public class CursoAdapter extends RecyclerView.Adapter<CursoAdapter.ViewHolder> 
                     );
                 }
             });
-
-
-
         } catch (Exception e) {
           e.printStackTrace();
         }

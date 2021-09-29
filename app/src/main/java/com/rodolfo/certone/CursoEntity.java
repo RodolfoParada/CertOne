@@ -5,21 +5,24 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName="curso_entity")
 public class CursoEntity {
-    @PrimaryKey
-    private int id;
+    @PrimaryKey private int id;
     private String title;
     private String previewDescription;
     private String imagen;
-    private int semanas;
-    private String inicio;
+    private int weeks;
+    private String start;
 
-    public CursoEntity(int id, String title, String previewDescription, String imagen, int semanas, String inicio) {
+
+
+    public CursoEntity(){}
+
+    public CursoEntity(int id, String title, String previewDescription, String imagen, int weeks, String start) {
         this.id = id;
         this.title = title;
         this.previewDescription = previewDescription;
         this.imagen = imagen;
-        this.semanas = semanas;
-        this.inicio = inicio;
+        this.weeks = weeks;
+        this.start = start;
     }
 
     public int getId() {
@@ -54,20 +57,22 @@ public class CursoEntity {
         this.imagen = imagen;
     }
 
-    public String getInicio() {
-        return inicio;
+    public int getWeeks() {
+        return weeks;
     }
 
-    public void setInicio(String inicio) {
-        this.inicio = inicio;
+    public void setWeeks(int weeks) {
+        this.weeks = weeks;
     }
 
-    public int getSemanas() {
-        return semanas;
+    public String getStart() {
+        return start;
     }
 
-    public void setSemanas(int semanas) {
-        this.semanas = semanas;
+    public void setStart(String start) {
+        this.start = start;
     }
+
+
 }
 

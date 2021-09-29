@@ -56,11 +56,11 @@ public class CursoDetalleActivity extends AppCompatActivity {
             protected void onPostExecute(String result) {
                 Picasso.get().load(cursoDetalleEntity.getImage()).into(ivCursoimagenDetail);
                 tvCursoTitle.setText(cursoDetalleEntity.getTitle());
-                tvCursoBootcamp.setText(cursoDetalleEntity.getBootcamp());
+                tvCursoBootcamp.setText(cursoDetalleEntity.getTuition());
                 tvCursopreviewDescription.setText(cursoDetalleEntity.getDescription());
-                tvCursosemanas.setText(cursoDetalleEntity.getSemanas());
-                tvCursoInicio.setText(cursoDetalleEntity.getInicio());
-                tvCursosMatricula.setText(cursoDetalleEntity.getMatrícula());
+                tvCursosemanas.setText(cursoDetalleEntity.getWeeks());
+                tvCursoInicio.setText(cursoDetalleEntity.getStart());
+                tvCursosMatricula.setText(cursoDetalleEntity.getTuition());
                 tvCursosminimumSkill.setText(cursoDetalleEntity.getMinimumSkill());
 
         }
