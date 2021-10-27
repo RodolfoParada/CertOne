@@ -1,15 +1,17 @@
 package com.rodolfo.certone;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName="curso_detalle_entity")
 public class CursoDetalleEntity {
-    @PrimaryKey private int id;
+    @NonNull
+    @PrimaryKey private String id;
     private String title;
     private String description;
     private String image;
-    private String weeks;
+    private int weeks;
     private int tuition;
     private String minimumSkill;
     private boolean ScholarshipsAvailable;
@@ -20,7 +22,7 @@ public class CursoDetalleEntity {
 
     }
 
-    public CursoDetalleEntity(int id, String title, String description, String image, String weeks, int tuition, String minimumSkill, boolean scholarshipsAvailable, String modality, String start) {
+    public CursoDetalleEntity(String id, String title, String description, String image, int weeks, int tuition, String minimumSkill, boolean scholarshipsAvailable, String modality, String start) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -34,11 +36,11 @@ public class CursoDetalleEntity {
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -66,11 +68,11 @@ public class CursoDetalleEntity {
         this.image = image;
     }
 
-    public String getWeeks() {
+    public int getWeeks() {
         return weeks;
     }
 
-    public void setWeeks(String weeks) {
+    public void setWeeks(int weeks) {
         this.weeks = weeks;
     }
 

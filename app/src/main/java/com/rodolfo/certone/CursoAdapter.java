@@ -5,13 +5,14 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.PicassoProvider;
-
 import java.util.List;
 
 public class CursoAdapter extends RecyclerView.Adapter<CursoAdapter.ViewHolder> {
@@ -26,11 +27,8 @@ public class CursoAdapter extends RecyclerView.Adapter<CursoAdapter.ViewHolder> 
     @NonNull
     @Override
     public CursoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater
-                .from(parent.getContext());
-
-        View listItem = layoutInflater
-                .inflate(R.layout.curso_item, parent, false);
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View listItem = layoutInflater.inflate(R.layout.curso_item, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(listItem);
         return viewHolder;
@@ -40,30 +38,37 @@ public class CursoAdapter extends RecyclerView.Adapter<CursoAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Curso curso = cursoLista.get(position);
         try {
-      //  Picasso.get().load(cursoLista.get(position).getImagen()).into(holder.ivCurso);
-            Picasso.get().load(cursoLista.get(position).getImagen()).into(holder.ivCurso);
 
+            Picasso.get().load(cursoLista.get(position).getImagen()).into(holder.ivCurso);
             holder.tvTitleCurso.setText(cursoLista.get(position).getTitle());
             holder.tvSubTitulo.setText(cursoLista.get(position).getPreviewDescription());//retorna int
+
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    context.startActivity(new Intent(context,CursoDetalleActivity.class)
-                            .putExtra("id",cursoLista.get(position).getId())
+                   Toast.makeText(context, "ELEMENTO " , Toast.LENGTH_SHORT).show();
+                   /*context.startActivity(new Intent(context, CursoDetalleActivity.class)
+                            .putExtra( "id",cursoLista.get(position).getId())
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    );
+                );*/
+
+
                 }
             });
+
         } catch (Exception e) {
-          e.printStackTrace();
+            e.printStackTrace();
         }
+
+
     }
 
 
     @Override
     public int getItemCount() {
         return cursoLista.size();
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -77,6 +82,7 @@ public class CursoAdapter extends RecyclerView.Adapter<CursoAdapter.ViewHolder> 
             this.ivCurso = (ImageView) itemView.findViewById(R.id.ivCurso);
             this.tvTitleCurso = (TextView) itemView.findViewById(R.id.tvTitleCurso);
             this.tvSubTitulo = (TextView) itemView.findViewById(R.id.tvSubTitulo);
+
         }
     }
 }

@@ -3,28 +3,31 @@ package com.rodolfo.certone;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-  private static final String TAG ="MainActivity";
-
     List<Curso> ListaCurso;
     List<CursoDetalle> ListaCursoDetalle;
     RecyclerView rvCursos;
     CursoAdapter cursoAdapter;
+    Button btn1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         ListaCurso = new ArrayList<Curso>();
         ListaCursoDetalle = new ArrayList<CursoDetalle>();
@@ -50,15 +53,12 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i < ListaCurso.size(); i++) {
                     CursoDetalle cursoDetalle = getRetrofit(1)
                             .create(CursoAPI.class)
-                            .getCursoDetalle(Integer.toString(ListaCurso.get(i).getId()))
+                            .getCursoDetalle(ListaCurso.get(i).getId())
                             .execute()
                             .body();
-
                     ListaCursoDetalle.add(cursoDetalle);
                 }
-                loadCursosIntoDB();
-            } catch (IOException e) {
-                e.printStackTrace();
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                                     ListaCurso.get(i).getTitle(),
                                     ListaCurso.get(i).getPreviewDescription(),
                                     ListaCurso.get(i).getImagen(),
-                                    ListaCurso.get(i).getWeeks(),// es un int
+                                    ListaCurso.get(i).getWeeks(),
                                     ListaCurso.get(i).getStart()
                             )
                     );
@@ -114,7 +114,11 @@ public class MainActivity extends AppCompatActivity {
                 return new Retrofit.Builder().baseUrl(getString(R.string.endPoint_CursosDetalle)).addConverterFactory(GsonConverterFactory.create()).build();
             }
         }
-    }
+
+
+
+            }
 }
+
 
 

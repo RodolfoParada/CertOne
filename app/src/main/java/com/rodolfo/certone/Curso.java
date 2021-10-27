@@ -1,7 +1,7 @@
 package com.rodolfo.certone;
 
 public class Curso {
-    private int id;
+    private String id;
     private String title;
     private String previewDescription;
     private String image;
@@ -12,7 +12,7 @@ public class Curso {
 
     }
 
-    public Curso(int id, String title, String previewDescription, String imagen, int weeks, String start) {
+    public Curso(String id, String title, String previewDescription, String image, int weeks, String start) {
         this.id = id;
         this.title = title;
         this.previewDescription = previewDescription;
@@ -23,11 +23,11 @@ public class Curso {
 
     }
 
-    public  int getId() {
+    public  String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -51,7 +51,7 @@ public class Curso {
         return image;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(String image) {
         this.image = image;
     }
     public int getWeeks() {

@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class CursoDetalle {
-    private int id;
+    private String id;
     private String title;
     private String description;
     private String image;
-    private String weeks;
+    private int weeks;
     private int tuition;
     private String minimumSkill;
     private boolean ScholarshipsAvailable;
@@ -20,7 +20,7 @@ public class CursoDetalle {
 
     }
 
-    public CursoDetalle(int id, String title, String description, String image, String weeks, int tuition, String minimumSkill, boolean scholarshipsAvailable, String modality, String start) {
+    public CursoDetalle(String id, String title, String description, String image, int weeks, int tuition, String minimumSkill, boolean scholarshipsAvailable, String modality, String start) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -32,11 +32,11 @@ public class CursoDetalle {
         this.modality = modality;
         this.start = start;
     }
-        public int getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 
@@ -89,11 +89,11 @@ public class CursoDetalle {
         public void setModality(String modality) {
             this.modality = modality;
         }
-    public String getWeeks() {
+    public int getWeeks() {
         return weeks;
     }
 
-    public void setWeeks(String weeks) {
+    public void setWeeks(int weeks) {
         this.weeks = weeks;
     }
 
